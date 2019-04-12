@@ -41,7 +41,7 @@ public class OData_TestServlet extends HttpServlet {
 		
 		
      		// Test with OData Northwind Database
-// 		ODataConnection con = new ODataConnection("https://services.odata.org/V3/Northwind/Northwind.svc/", "", "I509049", "Hallbrook1!");
+// 		ODataConnection con = new ODataConnection("https://services.odata.org/V3/Northwind/Northwind.svc/", "", "", "");
 		
 // 		response.getWriter().println(con);
 		
