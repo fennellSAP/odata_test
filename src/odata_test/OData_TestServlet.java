@@ -42,11 +42,11 @@ public class OData_TestServlet extends HttpServlet {
 		// Print response message to ensure success or view error
 		response.getWriter().println(res);
 		
-		// Get data returned from request
-		String data = res.getBody();
+		// Get response as an XML document
+		String document = res.getDocumentAsString();
 		
-		// Print data returned from request
-		response.getWriter().println(data);
+		// Print XML data returned from request
+		response.getWriter().println(document);
 		
 		
 	}
@@ -60,4 +60,4 @@ public class OData_TestServlet extends HttpServlet {
 	}
 
 }
-	
+
