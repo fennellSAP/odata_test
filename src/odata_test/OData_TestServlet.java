@@ -29,25 +29,24 @@ public class OData_TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		
 		response.getWriter().println("This is the OData Test");
 
-		ODataConnection con = new ODataConnection("https://pt6-001-api.wdf.sap.corp/sap/opu/odata/IBP/EXTRACT_ODATA_SRV/", "", "EXT_SCHEDULER_USER", "Welcome1!");
+		// Create connection
+		ODataConnection con = new ODataConnection("https://pt6-001-api.wdf.sap.corp/sap/opu/odata/IBP/EXTRACT_ODATA_SRV/", "", "ODATA_USER_TEST" , "Welcome1!");
 		
-		response.getWriter().println(con);
-		
+		// Request data from SAP IBP
 		Response res = con.sendGetRequest("https://pt6-001-api.wdf.sap.corp/sap/opu/odata/IBP/EXTRACT_ODATA_SRV/$metadata");
 		
+		// Print response message to ensure success or view error
+		response.getWriter().println(res);
 		
+		// Get data returned from request
+		String data = res.getBody();
 		
-     		// Test with OData Northwind Database
-// 		ODataConnection con = new ODataConnection("https://services.odata.org/V3/Northwind/Northwind.svc/", "", "", "");
-		
-// 		response.getWriter().println(con);
-		
-// 		Response res = con.sendGetRequest("https://services.odata.org/V3/Northwind/Northwind.svc/Customers");
-		
-// 		response.getWriter().println(res);
+		// Print data returned from request
+		response.getWriter().println(data);
 		
 		
 	}
@@ -61,3 +60,4 @@ public class OData_TestServlet extends HttpServlet {
 	}
 
 }
+	
