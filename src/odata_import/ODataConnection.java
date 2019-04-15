@@ -606,7 +606,7 @@ public class ODataConnection {
         if (this.csrfToken == null) {
             throw new IOException("Failed to obtain x-csrf-token" + "\nurl: " + url);
         }
-
+        
         String cookie = connection.getHeaderField("Set-Cookie");
         if ((cookie != null) && (cookie.contains("SAP_SESSIONID"))) {
             this.cookie = cookie;
